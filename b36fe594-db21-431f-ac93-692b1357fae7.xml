@@ -5,7 +5,7 @@
     <executionEnabled>true</executionEnabled>
     <id>b36fe594-db21-431f-ac93-692b1357fae7</id>
     <loglevel>INFO</loglevel>
-    <name>whoami &gt; 2</name>
+    <name>whoami &gt; 2 -&gt; 3- -&gt; hello</name>
     <nodeFilterEditable>false</nodeFilterEditable>
     <plugins />
     <scheduleEnabled>true</scheduleEnabled>
