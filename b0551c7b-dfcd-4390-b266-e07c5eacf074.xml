@@ -1,0 +1,82 @@
+<joblist>
+  <job>
+    <defaultTab>nodes</defaultTab>
+    <description>Main Orchestrator Job to Archive and Convert the RPTR file</description>
+    <dispatch>
+      <excludePrecedence>true</excludePrecedence>
+      <keepgoing>false</keepgoing>
+      <rankOrder>ascending</rankOrder>
+      <successOnEmptyNodeFilter>false</successOnEmptyNodeFilter>
+      <threadcount>1</threadcount>
+    </dispatch>
+    <executionEnabled>true</executionEnabled>
+    <id>b0551c7b-dfcd-4390-b266-e07c5eacf074</id>
+    <loglevel>INFO</loglevel>
+    <maxMultipleExecutions>2</maxMultipleExecutions>
+    <multipleExecutions>true</multipleExecutions>
+    <name>client_test</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <nodefilters>
+      <filter>name: .*</filter>
+      <filterExclude>healthcheck:status: UNHEALTHY</filterExclude>
+    </nodefilters>
+    <nodesSelectedByDefault>true</nodesSelectedByDefault>
+    <notification>
+      <onfailure>
+        <plugin type='SlackNotification'>
+          <configuration>
+            <entry key='slack_channel' value='' />
+            <entry key='webhook_base_url' value='https://hooks.slack.com/services' />
+            <entry key='webhook_token' value='' />
+          </configuration>
+        </plugin>
+      </onfailure>
+    </notification>
+    <notifyAvgDurationThreshold />
+    <orchestrator>
+      <configuration>
+        <count>2</count>
+      </configuration>
+      <type>subset</type>
+    </orchestrator>
+    <plugins>
+      <ExecutionLifecycle type='refreshHealthCheckerCache'>
+        <configuration data='true'>
+          <map>
+            <value key='enabled'>true</value>
+          </map>
+        </configuration>
+      </ExecutionLifecycle>
+    </plugins>
+    <schedule>
+      <month month='*' />
+      <time hour='18' minute='00' seconds='0' />
+      <weekday day='FRI,MON,THU,TUE,WED' />
+      <year year='*' />
+    </schedule>
+    <scheduleEnabled>true</scheduleEnabled>
+    <schedules />
+    <sequence keepgoing='false' strategy='sequential'>
+      <command>
+        <exec>whoami</exec>
+      </command>
+      <command>
+        <node-step-plugin type='stub-node-step'>
+          <configuration>
+            <entry key='data' value='${node.hostname}=yes' />
+            <entry key='format' value='properties' />
+          </configuration>
+        </node-step-plugin>
+      </command>
+      <command>
+        <step-plugin type='log-data-step'>
+          <configuration>
+            <entry key='debugOnly' value='false' />
+          </configuration>
+        </step-plugin>
+      </command>
+    </sequence>
+    <timeout>25h</timeout>
+    <uuid>b0551c7b-dfcd-4390-b266-e07c5eacf074</uuid>
+  </job>
+</joblist>

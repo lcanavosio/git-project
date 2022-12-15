@@ -1,0 +1,32 @@
+<joblist>
+  <job>
+    <context>
+      <options preserveOrder='true'>
+        <option enforcedvalues='true' name='nodes' valuesUrl='http://localhost:4441/api/40/project/Test1/resources?authtoken=uFdJywRxXGnysh5SmgiZ4UCnmo5zKObU&amp;format=json' />
+      </options>
+    </context>
+    <defaultTab>nodes</defaultTab>
+    <description></description>
+    <executionEnabled>true</executionEnabled>
+    <id>d338fa5d-8570-4945-80a8-de5fb70c9b50</id>
+    <loglevel>INFO</loglevel>
+    <name>chris</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <plugins />
+    <scheduleEnabled>true</scheduleEnabled>
+    <schedules />
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <exec>echo ${option.nodes}</exec>
+      </command>
+      <command>
+        <step-plugin type='log-data-step'>
+          <configuration>
+            <entry key='debugOnly' value='false' />
+          </configuration>
+        </step-plugin>
+      </command>
+    </sequence>
+    <uuid>d338fa5d-8570-4945-80a8-de5fb70c9b50</uuid>
+  </job>
+</joblist>

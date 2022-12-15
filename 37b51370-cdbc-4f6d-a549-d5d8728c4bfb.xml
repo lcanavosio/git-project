@@ -1,0 +1,61 @@
+<joblist>
+  <job>
+    <defaultTab>nodes</defaultTab>
+    <description></description>
+    <dispatch>
+      <excludePrecedence>true</excludePrecedence>
+      <keepgoing>false</keepgoing>
+      <rankOrder>ascending</rankOrder>
+      <successOnEmptyNodeFilter>false</successOnEmptyNodeFilter>
+      <threadcount>1</threadcount>
+    </dispatch>
+    <executionEnabled>true</executionEnabled>
+    <id>37b51370-cdbc-4f6d-a549-d5d8728c4bfb</id>
+    <loglevel>INFO</loglevel>
+    <maxMultipleExecutions>2</maxMultipleExecutions>
+    <multipleExecutions>true</multipleExecutions>
+    <name>client_test_Child1</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <nodefilters>
+      <filter>name: .*</filter>
+      <filterExclude>192.168.0.121</filterExclude>
+    </nodefilters>
+    <nodesSelectedByDefault>true</nodesSelectedByDefault>
+    <notification>
+      <onfailure>
+        <plugin type='SlackNotification'>
+          <configuration>
+            <entry key='slack_channel' value='' />
+            <entry key='webhook_base_url' value='https://hooks.slack.com/services' />
+            <entry key='webhook_token' value='' />
+          </configuration>
+        </plugin>
+      </onfailure>
+    </notification>
+    <notifyAvgDurationThreshold />
+    <orchestrator>
+      <configuration>
+        <count>2</count>
+      </configuration>
+      <type>subset</type>
+    </orchestrator>
+    <plugins>
+      <ExecutionLifecycle type='refreshHealthCheckerCache'>
+        <configuration data='true'>
+          <map>
+            <value key='enabled'>true</value>
+          </map>
+        </configuration>
+      </ExecutionLifecycle>
+    </plugins>
+    <scheduleEnabled>true</scheduleEnabled>
+    <schedules />
+    <sequence keepgoing='false' strategy='sequential'>
+      <command>
+        <exec>echo child1</exec>
+      </command>
+    </sequence>
+    <timeout>25h</timeout>
+    <uuid>37b51370-cdbc-4f6d-a549-d5d8728c4bfb</uuid>
+  </job>
+</joblist>

@@ -1,0 +1,79 @@
+<joblist>
+  <job>
+    <defaultTab>nodes</defaultTab>
+    <description></description>
+    <dispatch>
+      <excludePrecedence>true</excludePrecedence>
+      <keepgoing>false</keepgoing>
+      <rankOrder>ascending</rankOrder>
+      <successOnEmptyNodeFilter>false</successOnEmptyNodeFilter>
+      <threadcount>1</threadcount>
+    </dispatch>
+    <executionEnabled>true</executionEnabled>
+    <id>bab6faa9-24a0-4e54-a00e-a79a071afcfc</id>
+    <loglevel>INFO</loglevel>
+    <maxMultipleExecutions>2</maxMultipleExecutions>
+    <multipleExecutions>true</multipleExecutions>
+    <name>client_test_Parent</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <nodefilters>
+      <filter>name: .*</filter>
+      <filterExclude>192.168.0.121</filterExclude>
+    </nodefilters>
+    <nodesSelectedByDefault>true</nodesSelectedByDefault>
+    <notification>
+      <onfailure>
+        <plugin type='SlackNotification'>
+          <configuration>
+            <entry key='slack_channel' value='' />
+            <entry key='webhook_base_url' value='https://hooks.slack.com/services' />
+            <entry key='webhook_token' value='' />
+          </configuration>
+        </plugin>
+      </onfailure>
+    </notification>
+    <notifyAvgDurationThreshold />
+    <orchestrator>
+      <configuration>
+        <count>2</count>
+      </configuration>
+      <type>subset</type>
+    </orchestrator>
+    <plugins>
+      <ExecutionLifecycle type='refreshHealthCheckerCache'>
+        <configuration data='true'>
+          <map>
+            <value key='enabled'>true</value>
+          </map>
+        </configuration>
+      </ExecutionLifecycle>
+    </plugins>
+    <schedule>
+      <month month='*' />
+      <time hour='18' minute='00' seconds='0' />
+      <weekday day='FRI,MON,THU,TUE,WED' />
+      <year year='*' />
+    </schedule>
+    <scheduleEnabled>true</scheduleEnabled>
+    <schedules />
+    <sequence keepgoing='false' strategy='sequential'>
+      <command>
+        <jobref name='client_test_Child1'>
+          <uuid>37b51370-cdbc-4f6d-a549-d5d8728c4bfb</uuid>
+        </jobref>
+      </command>
+      <command>
+        <jobref name='client_test_Child2'>
+          <uuid>08c9940e-e00a-4732-b271-70c7f6dde0cb</uuid>
+        </jobref>
+      </command>
+      <command>
+        <jobref name='client_test_Child3'>
+          <uuid>d2fc7f56-9b34-44a1-80a9-822cb163d07c</uuid>
+        </jobref>
+      </command>
+    </sequence>
+    <timeout>25h</timeout>
+    <uuid>bab6faa9-24a0-4e54-a00e-a79a071afcfc</uuid>
+  </job>
+</joblist>
