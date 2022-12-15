@@ -1,7 +1,7 @@
 <joblist>
   <job>
     <defaultTab>nodes</defaultTab>
-    <description></description>
+    <description>a</description>
     <dispatch>
       <excludePrecedence>true</excludePrecedence>
       <keepgoing>false</keepgoing>
