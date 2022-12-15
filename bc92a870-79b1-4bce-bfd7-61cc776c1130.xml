@@ -1,0 +1,20 @@
+<joblist>
+  <job>
+    <defaultTab>nodes</defaultTab>
+    <description></description>
+    <executionEnabled>true</executionEnabled>
+    <id>bc92a870-79b1-4bce-bfd7-61cc776c1130</id>
+    <loglevel>INFO</loglevel>
+    <name>whoami</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <plugins />
+    <scheduleEnabled>true</scheduleEnabled>
+    <schedules />
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <exec>whoami</exec>
+      </command>
+    </sequence>
+    <uuid>bc92a870-79b1-4bce-bfd7-61cc776c1130</uuid>
+  </job>
+</joblist>
